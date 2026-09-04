@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Press+Start+2P&family=Unbounded:wght@800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --border-muted: rgba(255, 255, 255, 0.15);
+  --surface: #0a0a0a;
+  --surface-card: #121212;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body {
+  color: #ffffff;
+  background-color: #000000;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Sturdy Pure Monochrome Typography */
+.sturdy-title {
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.sturdy-pill {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sturdy-pill:hover {
+  border-color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Scrollbar Pure Black and White */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+/* High-Contrast Accessible Text Selection */
+::selection {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+::-moz-selection {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* For dark sections (Hero, detail page left sidebar, etc.) */
+#hero ::selection,
+.bg-black ::selection,
+.bg-\[\#000000\] ::selection,
+[data-theme="dark"] ::selection {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+#hero ::-moz-selection,
+.bg-black ::-moz-selection,
+.bg-\[\#000000\] ::-moz-selection,
+[data-theme="dark"] ::-moz-selection {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
