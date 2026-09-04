@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import { getAssetPath } from "@/lib/utils";
 
 export const AboutSection: React.FC = () => {
   const slides = [
@@ -86,7 +87,7 @@ export const AboutSection: React.FC = () => {
               }`}
             >
               <Image
-                src={slide.image}
+                src={getAssetPath(slide.image)}
                 alt={`Studio slide ${idx + 1}`}
                 fill
                 priority={idx === 0}
