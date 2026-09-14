@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, PackageCheck, Store, GraduationCap } from "lucide-react";
 
 interface ExperienceSectionProps {
   onOpenCertificate: () => void;
@@ -11,6 +11,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onOpenCert
   const experiences = [
     {
       code: "01",
+      logoLabel: "中通快递",
       period: "2020.11 - PRESENT",
       company: "中通快递股份有限公司",
       role: "高级交互设计师 / 产品设计",
@@ -25,6 +26,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onOpenCert
     },
     {
       code: "02",
+      logoLabel: "食行生鲜",
       period: "2019.03 - 2020.11",
       company: "食行生鲜",
       role: "高级交互设计师",
@@ -38,6 +40,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onOpenCert
     },
     {
       code: "03",
+      logoLabel: "天津科技大学",
       period: "2016.09 - 2019.06",
       company: "天津科技大学",
       role: "工业设计工程 · 工学硕士",
@@ -56,64 +59,106 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onOpenCert
       id="experience"
       className="w-full bg-[#e8ebed] text-black py-24 border-b border-black/10"
     >
-      {/* Symmetrical Comfortable Padding (与项目板块保持完全一致的居中间距，不撑太满) */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-12">
+      {/* Symmetrical Comfortable Padding */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 space-y-12 sm:space-y-16">
         {/* Section Header */}
-        <div className="w-full pb-2">
+        <div className="w-full flex items-baseline justify-between border-b border-black/10 pb-6">
           <h2 className="text-4xl sm:text-5xl md:text-[72px] font-semibold tracking-tight leading-none font-manrope text-black">
             履历
           </h2>
+          <div className="text-xs font-mono text-zinc-500 uppercase tracking-widest hidden sm:block">
+            CAREER TIMELINE · 2016 - 2026
+          </div>
         </div>
 
-        {/* 3 Career Chapters Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 w-full pt-4">
-          {experiences.map((exp, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col justify-between space-y-6 group"
-            >
-              <div className="space-y-4">
-                {/* Direct Year / Period (No sequence number, no redundant line) */}
-                <div className="text-sm font-mono font-bold text-black tracking-wider">
-                  {exp.period}
-                </div>
+        {/* Horizontal Timeline Container */}
+        <div className="relative w-full">
+          {/* Continuous Horizontal Axis Line with fade out after the last node (最后一个点结束渐隐) */}
+          <div
+            className="hidden lg:block absolute top-[5px] left-1 right-0 h-[1.5px] z-0 pointer-events-none"
+            style={{
+              background: "linear-gradient(to right, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.25) 68%, rgba(0, 0, 0, 0) 88%)",
+            }}
+          />
 
-                {/* Company & Role */}
-                <div className="space-y-1.5">
-                  <h3 className="text-2xl font-black tracking-tight text-black group-hover:opacity-75 transition-opacity">
-                    {exp.company}
-                  </h3>
-                  <div className="text-xs font-mono font-bold text-zinc-800">
-                    {exp.role}
+          {/* Timeline Milestones (Horizontal Progression) */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-14 w-full relative z-10">
+            {experiences.map((exp, idx) => (
+              <div
+                key={idx}
+                className="flex flex-col justify-between space-y-8 group"
+              >
+                {/* Vertical Stack: 1.节点 ➔ 2.图标 ➔ 3.时间 ➔ 4.岗位 ➔ 5.描述 */}
+                <div className="space-y-5">
+                  {/* 1. 节点 (Refined Dot on Horizontal Axis) */}
+                  <div className="flex items-center h-3">
+                    <div className="w-2.5 h-2.5 rounded-full bg-black ring-4 ring-[#e8ebed] shrink-0 group-hover:scale-125 transition-transform" />
                   </div>
-                  <div className="text-[11px] font-mono text-zinc-500">
-                    {exp.scope}
-                  </div>
-                </div>
 
-                {/* Summary */}
-                <p className="text-xs text-zinc-700 leading-relaxed font-normal pt-1">
-                  {exp.summary}
-                </p>
-
-                {/* Achievements */}
-                <div className="space-y-2 pt-2">
-                  {exp.achievements.map((item, aIdx) => (
-                    <div key={aIdx} className="text-xs text-zinc-800 leading-relaxed flex items-start gap-2">
-                      <span className="font-bold font-mono text-black shrink-0">—</span>
-                      <span>{item}</span>
+                  {/* 2. 图标 (Icon / Logo Placeholder) */}
+                  <div className="pt-1">
+                    <div className="w-14 h-14 bg-white border border-black/15 flex flex-col items-center justify-center p-1.5 shadow-sm group-hover:border-black transition-all">
+                      {idx === 0 && <PackageCheck className="w-5 h-5 text-black" />}
+                      {idx === 1 && <Store className="w-5 h-5 text-black" />}
+                      {idx === 2 && <GraduationCap className="w-5 h-5 text-black" />}
+                      <span className="text-[9px] font-mono font-bold text-zinc-600 pt-0.5 scale-95">
+                        {exp.logoLabel}
+                      </span>
                     </div>
-                  ))}
+                  </div>
+
+                  {/* 3. 时间 (Time / Period) */}
+                  <div className="text-xs sm:text-sm font-mono font-bold text-black tracking-wider">
+                    {exp.period}
+                  </div>
+
+                  {/* 4. 岗位 (Role / Company & Position) */}
+                  <div className="space-y-1.5 pt-0.5">
+                    <h3 className="text-2xl font-black tracking-tight text-black group-hover:text-zinc-600 transition-colors">
+                      {exp.company}
+                    </h3>
+                    <div className="text-xs font-mono font-bold text-zinc-800">
+                      {exp.role}
+                    </div>
+                    <div className="text-[11px] font-mono text-zinc-500">
+                      {exp.scope}
+                    </div>
+                  </div>
+
+                  {/* 5. 描述 (Description: Summary & Key Achievements) */}
+                  <div className="space-y-3 pt-1">
+                    <p className="text-xs sm:text-[13px] text-zinc-700 leading-relaxed font-normal">
+                      {exp.summary}
+                    </p>
+
+                    <div className="space-y-2 pt-1 border-t border-black/10">
+                      {exp.achievements.map((item, aIdx) => (
+                        <div key={aIdx} className="text-xs text-zinc-800 leading-relaxed flex items-start gap-2 pt-1">
+                          <span className="font-bold font-mono text-black shrink-0">—</span>
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Honor / Tag (Clickable on iF award) */}
+                <div className="pt-3 border-t border-black/10 flex items-center justify-between text-xs font-mono">
+                  {idx === 0 ? (
+                    <button
+                      onClick={onOpenCertificate}
+                      className="font-bold text-black underline underline-offset-4 decoration-black/30 hover:decoration-black flex items-center gap-1.5 cursor-pointer text-left"
+                    >
+                      <span>🏆 {exp.honor}</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </button>
+                  ) : (
+                    <span className="font-bold text-black">{exp.honor}</span>
+                  )}
                 </div>
               </div>
-
-              {/* Bottom Honor / Tag (Clean, no redundant line) */}
-              <div className="pt-2 flex items-center justify-between text-xs font-mono">
-                <span className="font-bold text-black">{exp.honor}</span>
-                <ArrowUpRight className="w-4 h-4 text-black group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

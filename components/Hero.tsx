@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
             y="148"
             textLength="760"
             lengthAdjust="spacingAndGlyphs"
-            fill="#ffffff"
+            fill="#eaeef4"
             fontWeight="900"
             fontSize="175"
             fontFamily="'Unbounded', system-ui, -apple-system, sans-serif"
@@ -48,7 +48,7 @@ export const Hero: React.FC = () => {
             cx="798"
             cy="132"
             r="16"
-            fill="#ffffff"
+            fill="#eaeef4"
           />
 
           {/* Y Text with Unbounded font */}
@@ -57,7 +57,7 @@ export const Hero: React.FC = () => {
             y="148"
             textLength="168"
             lengthAdjust="spacingAndGlyphs"
-            fill="#ffffff"
+            fill="#eaeef4"
             fontWeight="900"
             fontSize="175"
             fontFamily="'Unbounded', system-ui, -apple-system, sans-serif"
@@ -70,7 +70,7 @@ export const Hero: React.FC = () => {
       {/* 2. Bottom Aligned Content Group */}
       <div className="mt-auto w-full max-w-5xl mx-auto px-4 sm:px-8 text-center space-y-5 sm:space-y-6 relative z-10">
         {/* 2. Role Title: Designer & AI Coder */}
-        <div className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight">
+        <div className="text-xl sm:text-2xl md:text-3xl font-black text-[#eaeef4] tracking-tight">
           杨雨辰 · Designer &amp; AI Coder
         </div>
 
@@ -80,7 +80,7 @@ export const Hero: React.FC = () => {
             {boxedPills.map((pill, idx) => (
               <span
                 key={idx}
-                className="px-5 py-2 rounded-full text-xs font-medium tracking-wide text-zinc-300 border border-white/20 hover:border-white hover:text-black hover:bg-white transition-all cursor-default shadow-sm bg-black/40 backdrop-blur-sm"
+                className="px-5 py-2 rounded-full text-xs font-medium tracking-wide text-[#eaeef4]/90 border border-[#eaeef4]/25 hover:border-[#eaeef4] hover:text-black hover:bg-[#eaeef4] transition-all cursor-default shadow-sm bg-black/40 backdrop-blur-sm"
               >
                 {pill}
               </span>
